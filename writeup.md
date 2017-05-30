@@ -25,7 +25,7 @@ The goals / steps of this project are the following:
 
 This writeup follows the points in the rubric and addresses them individually. 
 
-Please that the code for this project can be found in "lane_finding.ipynb".
+Please note that the code for this project can be found in "lane_finding.ipynb".
 
 ## Camera Calibration
 
@@ -92,6 +92,7 @@ The function 'cv2.getPerspectiveTransform' was used to calculate the transform m
 Minv = cv2.getPerspectiveTransform(dst, src)`
 
 The perspective transform was applied using the function 
+
 `cv2.warpPerspective(img, M, img_size, flags=cv2.INTER_LINEAR)`.
 
 The resulting transformed image appears as follows: 
@@ -114,8 +115,8 @@ The function `radius_of_curvature(left_fit, right_fit, ploty, left_fitx, right_f
 
 The equations used for the radius of curvature are:
 
-`left_curverad = ((1 + (2*left_fit[0]*y_eval + left_fit[1])**2)**1.5) / np.absolute(2*left_fit[0])
-right_curverad = ((1 + (2*right_fit[0]*y_eval + right_fit[1])**2)**1.5) / np.absolute(2*right_fit[0])`
+`left_curverad = ((1 + (2*left_fit[0]*y_eval + left_fit[1])**2)**1.5) / np.absolute(2*left_fit[0])`
+`right_curverad = ((1 + (2*right_fit[0]*y_eval + right_fit[1])**2)**1.5) / np.absolute(2*right_fit[0])`
  
 Conversion to meters was 30/720 m/pixel in y, and 3.7/730 in x.     
 
@@ -123,11 +124,11 @@ Vehicle offset was calculated according to the following steps. First, the lane 
 
 Here is the code snippet that performs the offset calculation:
 
-`lane_center = (left_fitx[-1] + right_fitx[-1]) / 2
-lane_width_pixels = right_fitx[-1] - left_fitx[-1]
-image_center = warped.shape[1] / 2
-offset_pixels = lane_center - image_center
-offset_m = offset_pixels * 3.7/lane_width_pixels`    
+`lane_center = (left_fitx[-1] + right_fitx[-1]) / 2`
+`lane_width_pixels = right_fitx[-1] - left_fitx[-1]`
+`image_center = warped.shape[1] / 2`
+`offset_pixels = lane_center - image_center`
+`offset_m = offset_pixels * 3.7/lane_width_pixels`    
 
 
 ### 6. Provide an example image of your result plotted back down onto the road such that the lane area is identified clearly.
@@ -154,7 +155,7 @@ Here's a [link to my video result](./P4_vid_lanelines.mp4)
 
 In order to get the pipeline to work with these settings on the main project video, two additional criteria were used for smoothing. 
 
-First, if the radius of curvature of the left and right lines are not within a factor of two, the lane fit is discarded and the previous one retained. 
+First, if the radius of curvature of the left and right lines are not within a factor of two, the lane fit is discarded and the previous one is retained. 
 
 The second criteria is a check on the width of the lane at both the top and bottom of the image. If these are not within a factor of two, the solution is similarly discarded. 
 
