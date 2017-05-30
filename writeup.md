@@ -13,12 +13,12 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./camera_cal/calibration3.jpg "Calibration Image 3"
-[image2]: /output_images/calibration.png "Undistorted Calibration Image"
+[image2]: ./output_images/calibration.png "Undistorted Calibration Image"
 [image3]: ./test_images/test5.jpg "Test Image for Binary Example"
-[image4]: /output_images/binary.png. "Binary Example"
-[image5]: /output_images/warped.png. "Perspective Transform"
-[image6]: /output_images/lane_lines.png. "Lane Lines"
-[image7]: /output_images/lane.png. "Image with Lane Identified"
+[image4]: ./output_images/binary.png "Binary Example"
+[image5]: ./output_images/warped.png "Perspective Transform"
+[image6]: ./output_images/lane_lines.png "Lane Lines"
+[image7]: ./output_images/lane.png "Image with Lane Identified"
 [video1]: ./P4_vid_lanelines.mp4 "Video"
 
 ### [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
