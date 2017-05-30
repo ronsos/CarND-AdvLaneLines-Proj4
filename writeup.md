@@ -13,12 +13,12 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./camera_cal/calibration3.jpg "Calibration Image 3"
-[image2]: ./output_images/calibration.png "Undistorted Calibration Image"
+[image2]: /output_images/calibration.png "Undistorted Calibration Image"
 [image3]: ./test_images/test5.jpg "Test Image for Binary Example"
-[image4]: ./output_images/binary.png. "Binary Example"
-[image5]: ./output_images/warped.png. "Perspective Transform"
-[image6]: ./output_images/lane_lines.png. "Lane Lines"
-[image7]: ./output_images/lane.png. "Image with Lane Identified"
+[image4]: /output_images/binary.png. "Binary Example"
+[image5]: /output_images/warped.png. "Perspective Transform"
+[image6]: /output_images/lane_lines.png. "Lane Lines"
+[image7]: /output_images/lane.png. "Image with Lane Identified"
 [video1]: ./P4_vid_lanelines.mp4 "Video"
 
 ### [Rubric](https://review.udacity.com/#!/rubrics/571/view) Points
@@ -41,6 +41,7 @@ The image is converted to grayscale, then the chessboard corners are found for t
 These corners are then used to find the camera calibration and distortion coefficients using the `cv2.calibrateCamera()` function. 
 
 The distortion correction is applied to the image using the `cv2.undistort()` function. The undistorted image appears as follows:
+
 ![undistorted][image2]
 
 
@@ -49,6 +50,7 @@ The distortion correction is applied to the image using the `cv2.undistort()` fu
 ### 1. Provide an example of a distortion-corrected image.
 
 The example above describes the process of distortion correction and shows and example. Here is the corrected image again:
+
 ![undistorted][image2]
 
 ### 2. Describe how (and identify where in your code) you used color transforms, gradients or other methods to create a thresholded binary image.  Provide an example of a binary image result.
@@ -87,7 +89,8 @@ The function 'cv2.getPerspectiveTransform' was used to calculate the transform m
 `M = cv2.getPerspectiveTransform(src, dst)
 Minv = cv2.getPerspectiveTransform(dst, src)`
 
-The perspective transform was applied using the function `cv2.warpPerspective(img, M, img_size, flags=cv2.INTER_LINEAR)`.
+The perspective transform was applied using the function 
+`cv2.warpPerspective(img, M, img_size, flags=cv2.INTER_LINEAR)`.
 
 The resulting transformed image appears as follows: 
 ![warped][image5]
@@ -107,6 +110,7 @@ Pixels determined to be inside the windows are binned by side (left/right) and a
 The function `radius_of_curvature(left_fit, right_fit, ploty, left_fitx, right_fitx)` can be found at the bottom of the 5th cell. This function returns the radius of curvature for each lane line and also the vehicle offset. 
 
 The equations used for the radius of curvature are:
+
 `left_curverad = ((1 + (2*left_fit[0]*y_eval + left_fit[1])**2)**1.5) / np.absolute(2*left_fit[0])
 right_curverad = ((1 + (2*right_fit[0]*y_eval + right_fit[1])**2)**1.5) / np.absolute(2*right_fit[0])`
  
@@ -114,7 +118,8 @@ Conversion to meters was 30/720 m/pixel in y, and 3.7/730 in x.
 
 Vehicle offset was calculated according to the following steps. First, the lane center is found using by averaging the bottom pixel of each lane line. This lane center value is subtracted from the value of the image center (half the width of the image). This gives the offset in pixels. Multiplying that value by 3.7 gives the distance in meters. 
 
-Here is the cide snippet that performs the offset calculation:
+Here is the code snippet that performs the offset calculation:
+
 `lane_center = (left_fitx[-1] + right_fitx[-1]) / 2
 lane_width_pixels = right_fitx[-1] - left_fitx[-1]
 image_center = warped.shape[1] / 2
