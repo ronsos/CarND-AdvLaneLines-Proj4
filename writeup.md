@@ -66,9 +66,11 @@ The 2nd cell of the IPython notebook shows the thresholding that was used. Ultim
 | SobelX        |  35    |  90  | 
 
 The original image prior to the binary thresholding (from 'test_images/test5.jpg')
+
 ![original binary][image3]
 
 The resulting binary image is as follows:
+
 ![binary][image4]
 
 ### 3. Describe how (and identify where in your code) you performed a perspective transform and provide an example of a transformed image. 
@@ -93,6 +95,7 @@ The perspective transform was applied using the function
 `cv2.warpPerspective(img, M, img_size, flags=cv2.INTER_LINEAR)`.
 
 The resulting transformed image appears as follows: 
+
 ![warped][image5]
 
 ### 4. Describe how (and identify where in your code) you identified lane-line pixels and fit their positions with a polynomial?
